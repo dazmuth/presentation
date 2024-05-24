@@ -1,0 +1,5 @@
+//Fix formatting error in header cell background, from dark to light:
+@include customize-style-block('TableHeaderRow') {
+    color: $elements-color-text-dark;
+    background: $elements-color-container-background-light;
+}

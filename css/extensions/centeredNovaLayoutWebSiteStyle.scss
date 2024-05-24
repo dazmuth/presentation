@@ -1,0 +1,29 @@
+$centered-block-width: 85%;
+$centered-wrapper-width: 100%;
+$centered-margin: 40px auto;
+
+@include customize-style-block('PageBody') {
+    width: 90%;
+    margin: $centered-margin;
+
+    @media #{$basic-screen-query-narrow} {
+        width: 90%;
+        margin: $centered-margin;
+    }
+
+    @media #{$basic-screen-query-normal} {
+        width: 80%;
+        margin: $centered-margin;
+    }
+
+    @media #{$basic-screen-query-wide} {
+        width: 950px;
+        margin: $centered-margin;
+    }
+}
+
+@import 'centeredElements/centeredParaBlockTextWebSiteStyle.scss';
+@import 'centeredElements/centeredQuestions.scss';
+@import 'centeredElements/centeredTabs.scss';
+@import 'centeredElements/centeredMovies.scss';
+@import 'centeredElements/centeredImageMap.scss';

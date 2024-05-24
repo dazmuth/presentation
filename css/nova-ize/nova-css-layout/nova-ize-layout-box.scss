@@ -1,0 +1,15 @@
+$layout-padding: $basic-padding;
+
+$layout-margin-top: $basic-margin-top;
+$layout-margin-right: $basic-margin-right;
+$layout-margin-bottom: $basic-margin-bottom;
+$layout-margin-left: $basic-margin-left;
+$layout-margin: $layout-margin-top $layout-margin-right $layout-margin-bottom $layout-margin-left;
+$layout-margin-centered: $layout-margin-top auto $layout-margin-bottom;
+
+$layout-border-width: $basic-border-width;
+
+$layout-horizontal-alignment: $basic-horizontal-alignment;
+$layout-vertical-alignment: $basic-vertical-alignment;
+
+$layout-icon-dimension: $basic-icon-dimension;

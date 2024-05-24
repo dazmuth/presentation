@@ -1,0 +1,39 @@
+@include customize-style-block('TabsNavigation') {
+    background-color: $elements-color-container-background-light;
+}
+
+@include customize-style-block('TabsNavigationItemHorizontal') {
+    padding: $tabs-navigation-item-padding;
+}
+
+@include customize-style-block('TabsNavigationItemVertical') {
+    padding: 17px 30px;
+}
+
+@include customize-style-block('TabsPanelsVertical') {
+    padding-#{$left}: $elements-margin-bottom;
+    box-sizing: border-box;
+}
+
+@include customize-style-block('TabsPanelTitle') {
+
+    color: $elements-color-text-dark;
+
+    &:hover {
+        color: $elements-color-branding1;
+        text-decoration: none;
+    }
+}
+
+@include customize-style-block('TabsNavigationHorizontalActiveLink') {
+
+    .TabsPanelTitle{
+        @include generate-style-block('TabsNavigationHorizontalActiveLinkTabsPanelTitle') {
+            color: $elements-color-branding1;
+        }
+    }
+}
+
+@include customize-style-block('TabsNavigationItemBefore') {
+    color: $elements-color-correct;
+}

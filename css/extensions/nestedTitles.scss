@@ -1,0 +1,35 @@
+@include customize-style-block('Body') {
+
+    .Topic > .Title {
+        @include generate-style-block('TitleStylesTopicTitle') {
+            font-size: 1.75em;
+            // color: $basic-color-branding2;
+        }
+    }
+
+    h2, h3 {
+        color: $basic-color-branding1;
+    }
+
+    .NestedSubTitle, .SubTitle {
+        @include generate-style-block('TitleStylesSubTitles') {
+            font-size: 1.5em;
+            color: $basic-color-branding1;
+        }
+    }
+
+    .TitledBlock {
+        @include generate-style-block('TitleStylesTitledBlock') {}
+
+        h1 {
+            @include generate-style-block('TitleStylesTitledBlockTitle') {}
+            font-size: 1.25em;
+        }
+
+        > h1 {
+            @include generate-style-block('TitleStylesTitledBlockChildTitle') {}
+            font-size: 1.45em;
+        }
+
+    }
+}

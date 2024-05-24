@@ -1,0 +1,8 @@
+@include customize-style-block('MatrixQuestionColumnHeader') {
+    text-align: $elements-horizontal-alignment;
+}
+
+@include customize-style-block('MatrixQuestionOptionWrapperNormalScreen') {
+    padding: 15px;
+    text-align: left;
+}

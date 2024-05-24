@@ -1,0 +1,47 @@
+///*!
+// * @license
+// * Copyright c 2019 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+// * All rights reserved.
+// *
+// * This file and related documentation are protected by copyright and
+// * are distributed under licenses regarding their use, copying, distribution,
+// * and decompilation. No part of this product or related documentation may
+// * be reproduced or transmitted in any form or by any means, electronic or
+// * mechanical, for any purpose, without the express written permission of
+// * Xyleme, Inc.
+//*/
+
+#{map-get($BLOCK_SELECTORS, 'PageFooter')} {
+    @include customize-style-block('NavigationButtonsLink') {
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        opacity: 1;
+        z-index: 103;
+
+        $icon-size: 11mm;
+
+        &:not(.Visible) {
+            opacity: 0;
+        }
+
+        .NavigationButton {
+            background: transparent;
+            border: none;
+            padding: 0;
+            box-shadow: none;
+            min-width: auto;
+
+            span {
+                display: none;
+            }
+
+            .SVGIcon {
+                width: $icon-size;
+                height: $icon-size;
+                margin: 0;
+                fill: $component-color-text-lightened;
+            }
+        }
+    }
+}

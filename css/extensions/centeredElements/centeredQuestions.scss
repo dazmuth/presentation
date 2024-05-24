@@ -1,0 +1,13 @@
+@include customize-style-block('Question') {
+    width: $centered-block-width;
+}
+
+@include customize-style-block('QuestionInnerWrapper') {
+    width: $centered-wrapper-width;
+}
+
+@include customize-style-block('QuestionInnerWrapperWideScreen') {
+    width: $centered-wrapper-width;
+    max-width: auto;
+    min-width: auto;
+}

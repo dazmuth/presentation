@@ -1,0 +1,20 @@
+@include customize-style-block('NavigationTreeNodeLink') {
+    flex-flow: column;
+}
+
+@include customize-style-block('NavigationTreeItemLabelVisible') {
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+}
+
+
+.NavigationTreeThumbnails {
+    .NavigationTreeLink, .NavigationTreeLink.Visible {
+        .NavigationTreeIcon {
+            fill: $basic-color-branding1;
+
+        }
+    }
+}

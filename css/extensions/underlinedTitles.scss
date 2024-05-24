@@ -1,0 +1,17 @@
+@include customize-style-block('Body') {
+
+    .Topic > .Title {
+
+        &::after {
+            @include generate-style-block('TopicTitleAfter') {
+                height: 4px;
+                width: 15%;
+                content: " ";
+                background: $basic-color-branding3;
+                display: block;
+                margin: 7px 0 14px;
+            }
+        }
+    }
+
+}

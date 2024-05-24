@@ -1,0 +1,19 @@
+@import 'extensions/courseImage.scss';
+@import 'extensions/backgroundImage.scss';
+@import 'extensions/breakoutElement.scss';
+@import 'extensions/elementAppear.scss';
+@import 'extensions/bannerImage.scss';
+@import 'extensions/widerNavigationItems.scss';
+@import 'extensions/underlinedTitles.scss';
+@import 'extensions/responsiveFonts.scss';
+@import 'extensions/nestedTitles.scss';
+@import 'extensions/activitiesAsCards.scss';
+@import 'VisualCuePresentation.scss';
+// @import 'extensions/centeredNovaLayoutStandardStyle.scss';
+
+@import 'extensions/TwentyTwenty/twentytwenty-no-compass.scss';
+
+.TitledBlock, .ParaBlock {
+    @extend .clearfix;
+    margin: $elements-margin;
+}

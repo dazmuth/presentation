@@ -1,0 +1,76 @@
+///*!
+// * @license
+// * Copyright c 2019 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+// * All rights reserved.
+// *
+// * This file and related documentation are protected by copyright and
+// * are distributed under licenses regarding their use, copying, distribution,
+// * and decompilation. No part of this product or related documentation may
+// * be reproduced or transmitted in any form or by any means, electronic or
+// * mechanical, for any purpose, without the express written permission of
+// * Xyleme, Inc.
+//*/
+.NavigationTreeThumbnails {
+    position: absolute;
+    z-index: 102;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 400ms;
+
+    .InnerFooterThumbnailsContent {}
+
+    .NavigationTreeLink, .NavigationTreeLink.Visible {
+        display: block;
+        position: absolute;
+        top: -11mm;
+        left: 0;
+        cursor: pointer;
+
+        .NavigationTreeTitle {
+            display: none;
+        }
+
+        .NavigationTreeIcon {
+            width: 11mm;
+            height: 11mm;
+            vertical-align: top;
+            fill: $component-color-text-lightened;
+            transform: rotate(90deg) translateX(-10px);
+            transition: transform 400ms;
+        }
+    }
+
+    &.Open {
+        z-index: 104;
+        transform: translateY(-100%);
+
+        .NavigationTreeLink .NavigationTreeIcon {
+            transform: rotate(-90deg);
+            margin-bottom: 0px;
+        }
+    }
+}
+
+
+@include customize-style-block('NavigationTree') {
+    background: #404040;
+    overflow: auto;
+    z-index: 102;
+}
+
+@include customize-style-block('NavigationTreeNodeLink') {
+    padding: 0;
+
+    &:hover {
+        background: transparent;
+    }
+}
+
+@include customize-style-block('NavigationTreeItemThumbnails') {
+    margin: 10px;
+}
+
+@include customize-style-block('NavigationTreeItemThumbnailActive') {
+    opacity: 1;
+}

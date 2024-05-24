@@ -1,0 +1,48 @@
+///*!
+// * @license
+// * Copyright c 2019 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+// * All rights reserved.
+// *
+// * This file and related documentation are protected by copyright and
+// * are distributed under licenses regarding their use, copying, distribution,
+// * and decompilation. No part of this product or related documentation may
+// * be reproduced or transmitted in any form or by any means, electronic or
+// * mechanical, for any purpose, without the express written permission of
+// * Xyleme, Inc.
+//*/
+@include customize-style-block('PageMain') {
+    // Set background to black to mimic PowerPoint letter-boxing
+    background-color: black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 99.8%;
+    width: 99.8%;
+
+    #PageFooter, #PageHeader {
+        opacity: 0;
+        transition: opacity 2.0s 0.5s, transform 2s 0.5s;
+        box-shadow: none;
+        background: transparent;
+    }
+    #PageFooter {
+        transform: translateY(15px);
+    }
+    #PageHeader {
+        transform: translateY(-15px);
+    }
+
+    &:hover {
+        #PageFooter, #PageHeader {
+            opacity: 1;
+            transition: opacity 0.5s 0s, transform 0.5s 0s;
+        }
+        #PageFooter {
+            transform: translateY(0);
+        }
+        #PageHeader {
+            transform: translateY(0);
+        }
+    }
+}

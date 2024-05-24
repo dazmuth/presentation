@@ -1,0 +1,23 @@
+%neutralColorCustomNote {
+    background-color: $basic-color-container-background-lightened;
+    border-color: $basic-color-container-background-lightened;
+    color: $basic-color-text-dark;
+}
+
+%darkColorCustomNote {
+    background-color: $basic-color-container-background-dark;
+    border-color: $basic-color-container-background-dark;
+    color: $basic-color-text-light;
+}
+
+%secondaryColorCustomNote {
+    background-color: $basic-color-branding2;
+    border-color: $basic-color-branding2;
+    color: $basic-color-text-light;
+}
+
+%tertiaryColorCustomNote {
+    background-color: $basic-color-branding3;
+    border-color: $basic-color-branding3;
+    color: $basic-color-text-dark;
+}

@@ -1,0 +1,26 @@
+@include customize-style-block('FAQCategory') {
+    border: none;
+}
+
+@include customize-style-block('FAQCategoryTitle') {
+    font-weight: 500;
+    border: 0 solid #C8C8CA; // Override of $elements-color-border;
+    border-bottom-width: 1px;
+    color: $elements-color-branding2;
+}
+
+@include customize-style-block('FAQQuestionShortAnswer') {
+    padding: initial;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+@include customize-style-block('FAQPrefix') {
+    width: auto;
+    float: none;
+  	margin-#{$right}: 0.4em;
+    margin-#{$left}: 0; // Must override core's negative left value since we use Flexbox here
+    font-size: 1.4em;
+    font-family: serif;
+    font-weight: 500;
+}

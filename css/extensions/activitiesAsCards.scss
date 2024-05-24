@@ -1,0 +1,18 @@
+%card-activity-wrapper {
+    box-sizing: border-box;
+    border: 1px solid $basic-color-border;
+    box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
+    padding: 6% 10% 10%;
+    background-color: $basic-color-container-background-light;
+
+    @media #{$basic-screen-query-wide} {
+        padding: 3.5em 5.5em 5.5em;
+    }
+}
+
+@import "activitiesAsCards/tabsAsCards.scss";
+@import "activitiesAsCards/questionsAsCards.scss";
+@import "activitiesAsCards/imageMapsAsCards.scss";
+@import "activitiesAsCards/flashcardsAsCards.scss";
+@import "activitiesAsCards/docWriterAsCards.scss";
+@import "activitiesAsCards/choiceBranch.scss";

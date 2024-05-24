@@ -1,0 +1,11 @@
+@include customize-style-block('CourseProgressLine') {
+    background: $basic-color-branding3;
+
+    &:before {
+        color: $basic-color-branding3;
+    }
+
+    &:after {
+        box-shadow: -2px 1px 10px $basic-color-branding3;
+    }
+}

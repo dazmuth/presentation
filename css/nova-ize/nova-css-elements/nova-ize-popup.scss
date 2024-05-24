@@ -1,0 +1,39 @@
+@include customize-style-block('PopupWrapper') {
+    border-radius: $elements-border-radius;
+    line-height: 20px;
+    color: $elements-color-text-dark;
+    box-shadow: 0 8px 15px $basic-box-shadow-color !important;
+
+    div {
+        @extend %scrollbarStyle;
+    }
+}
+
+@include customize-style-block('PopupTitlebar') {
+    background: transparent;
+    box-shadow: none;
+    color: $elements-color-branding1;
+}
+
+@include customize-style-block('PopupTitlebarClose') {
+    color: #000;
+    font-size: 2.5em;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+@include customize-style-block('PopupContent') {
+    padding: 25px 22px;
+
+    // This makes question widths fluid when within a popup
+    .QuestionInnerWrap {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@include customize-style-block('PopupButton') {
+    @extend .Button;
+    margin: 0 10px;
+    min-width: 100px;
+}

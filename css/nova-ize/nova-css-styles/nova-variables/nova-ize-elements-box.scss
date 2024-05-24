@@ -1,0 +1,18 @@
+$elements-padding: $basic-padding;
+
+$elements-margin-top: $basic-margin-top;
+$elements-margin-right: $basic-margin-right;
+$elements-margin-bottom: $basic-margin-bottom;
+$elements-margin-left: $basic-margin-left;
+$elements-margin: $elements-margin-top $elements-margin-right $elements-margin-bottom $elements-margin-left;
+$elements-margin-centered: $elements-margin-top auto $elements-margin-bottom;
+
+$elements-transition-duration: $basic-transition-duration;
+
+$elements-border-width: $basic-border-width;
+$elements-border-radius: $basic-border-radius;
+
+$elements-horizontal-alignment: $basic-horizontal-alignment;
+$elements-vertical-alignment: $basic-vertical-alignment;
+
+$elements-icon-dimension: $basic-icon-dimension;

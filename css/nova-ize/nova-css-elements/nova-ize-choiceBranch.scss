@@ -1,0 +1,22 @@
+@include customize-style-block('ChoiceBranchStem') {
+    h3 {
+        .Instructions {
+            font-size: 1rem;
+            font-style: italic;
+        }
+    } 
+}
+
+@include customize-style-block('ChoiceBranchInnerWrap') {
+    padding: 10px;
+    border-width: 0;
+}
+
+@include customize-style-block('ChoiceBranchOptionWrapper') {
+    border-width: 0;
+}
+
+@include customize-style-block('ChoiceBranchOptionDistractorWrapper') {
+    border-width: 0;
+    padding: 0 10px;
+}

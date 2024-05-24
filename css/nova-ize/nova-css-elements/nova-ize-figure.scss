@@ -1,0 +1,19 @@
+@include customize-style-block('Figure') {
+    margin: $elements-margin-centered;
+}
+
+@include customize-style-block('FigureWrap') {
+    text-align: $elements-horizontal-alignment;
+}
+
+@include customize-style-block('FigureWrapleft') {
+    margin-#{$right}: $elements-margin-bottom * 2;
+}
+
+@include customize-style-block('FigureWrapright') {
+    margin-#{$left}: $elements-margin-bottom * 2;
+}
+
+@include customize-style-block('FigureImage') {
+    margin: 0;
+}

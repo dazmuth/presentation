@@ -1,0 +1,1 @@
+Simply gives a bit more space to navigation items in the Navigation Tree component. This generally helps to make the Navigation Tree look a little more modern, but also helps give more "target" space when trying to select a navigation item on mobile devices.

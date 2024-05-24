@@ -1,0 +1,41 @@
+@include customize-style-block('ImageMapInstructions') {
+    text-align: left;
+}
+
+@include customize-style-block('ImageMapOverlayDisplayArea') {
+    @extend %scrollbarStyle;
+}
+
+@include customize-style-block('ImageMapOverlayDisplayAreaHotSpotContent') {
+    padding: $elements-margin-bottom 0;
+}
+
+@include customize-style-block('ImageMapOverlayHotSpotContent') {
+    @extend %scrollbarStyle;
+    background-color: $elements-color-container-background-light;
+    line-height: 20px;
+    border-radius: $elements-border-radius;
+    box-shadow: rgba(0,0,0,0.3) 0px 0px 10px;
+    padding: $elements-margin-bottom;
+    z-index: 200;
+
+    &::before {
+        width: 5px;
+        min-width: 5px;
+        background-color: $elements-color-branding3;
+        content: '';
+        display: inline-block;
+        min-height: 60%;
+        vertical-align: $elements-vertical-alignment;
+        position: absolute;
+    }
+    > * {
+        margin-#{$left}: 15px;
+    }
+}
+
+@include customize-style-block('ImageMapOverlayDirectSvgCompletedCompletedMark') {
+    font-size: 2em;
+    fill: #000;
+    stroke: $elements-color-text-light;
+}

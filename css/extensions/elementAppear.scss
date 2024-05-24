@@ -1,0 +1,129 @@
+/*!
+ * @license
+ * Copyright c 2020 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+ * All rights reserved.
+ *
+ * This file and related documentation are protected by copyright and
+ * are distributed under licenses regarding their use, copying, distribution,
+ * and decompilation. No part of this product or related documentation may
+ * be reproduced or transmitted in any form or by any means, electronic or
+ * mechanical, for any purpose, without the express written permission of
+ * Xyleme, Inc.
+*/
+
+@keyframes roll-in-from-left {
+    0% {
+        transform: translateX(-25px) rotate(-15deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes roll-in-from-right {
+    0% {
+        transform: translateX(25px) rotate(15deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.roll-in {
+    @include generate-style-block('animate-roll-in') {
+
+        &-from-left {
+            animation-direction: normal;
+            @include animationTiming();
+            animation-name: roll-in-from-left;
+        }
+
+        &-from-right {
+            animation-direction: normal;
+            @include animationTiming();
+            animation-name: roll-in-from-right;
+        }
+    }
+}
+
+.roll-out {
+    @include generate-style-block('animate-roll-out') {
+
+        &-to-left {
+            animation-direction: reverse;
+            @include animationTiming();
+            animation-name: roll-out-to-left;
+        }
+
+        &-to-right {
+            animation-direction: reverse;
+            @include animationTiming();
+            animation-name: roll-out-to-right;
+        }
+    }
+}
+
+.slide-fade {
+    @include generate-style-block('animate-slide-fade') {}
+
+    @mixin slideFadeFrom($direction, $initial-transform) {
+
+        @keyframes slide-fade-from-#{$direction} {
+            0% {
+                transform: $initial-transform;
+                @include animationTiming();
+                opacity: 0.1;
+            }
+            60% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        &-from-#{$direction} {
+            animation-name: slide-fade-from-#{$direction};
+            animation-direction: normal;
+        }
+    }
+
+    @mixin slideFadeTo($direction, $target-transform) {
+
+        @keyframes slide-fade-to-#{$direction} {
+            0% {
+                transform: translate(0, 0);
+                @include animationTiming();
+                opacity: 1;
+            }
+            60% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: $target-transform;
+                opacity: 0;
+            }
+        }
+
+        &-to-#{$direction} {
+            animation-name: slide-fade-to-#{$direction};
+            animation-direction: normal;
+        }
+    }
+
+
+    @include slideFadeFrom('top', translateY(-100px));
+    @include slideFadeFrom('bottom', translateY(100px));
+    @include slideFadeFrom('left', translateX(-100px));
+    @include slideFadeFrom('right', translateX(100px));
+
+    @include slideFadeTo('top', translateY(-100px));
+    @include slideFadeTo('bottom', translateY(100px));
+    @include slideFadeTo('left', translateX(-100px));
+    @include slideFadeTo('right', translateX(100px));
+}

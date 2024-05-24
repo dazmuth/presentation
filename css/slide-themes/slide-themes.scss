@@ -1,0 +1,150 @@
+.Topic.SlideTopic {
+    @include generate-style-block('SlideTopic') {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    >.SlideBody {
+        @include generate-style-block('SlideTopicSlideBody') {
+            width: 100%;
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .SlideTitledBlock {
+            @include generate-style-block('SlideTopicSlideBodySlideTitledBlock') {
+                flex: 0 1 auto;
+                display: flex;
+                justify-content: normal;
+                align-content: left;
+                margin: 1.5em;
+            }
+        }
+        .RowBreak {
+            @include generate-style-block('SlideTopicSlideBodySlideTitledBlock') {
+                width: 100%;
+                height: 0;
+            }
+        }
+    }
+
+    &.SlideTitleSlide {
+        @include generate-style-block('SlideTitleSlide') {
+            justify-content: normal;
+            flex-wrap: wrap;
+            >h1, >h2 {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+
+    &.SlideTransitionSlide {
+        @include generate-style-block('SlideTransitionSlide') {
+            justify-content: center;
+            flex-wrap: wrap;
+            >h1, >h2 {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+
+    &.SlideSingleContent {
+        @include generate-style-block('SlideSingleContent') {}
+        .SlideBody {
+            @include generate-style-block('SlideSingleContentSlideBody') {
+                flex-direction: column;
+                > .SlideTitledBlock {
+                    width: 100%;
+                    > .ParaBlock > .Figure.Wrap:first-of-type {
+                        text-align: center;
+                    }
+                    > .Question {
+                        text-align: center;
+                    }
+                  	.list { 
+                      text-align: left;
+                    }
+                }
+            }
+        }
+    }
+
+    &.SlideSidebySide5050 {
+        @include generate-style-block('SlideSidebySide5050') {
+        }
+    }
+
+    &.SlideSidebySide3060 {
+        @include generate-style-block('SlideSidebySide3060') {}
+        .SlideBody {
+            @include generate-style-block('SlideSidebySide3060SlideBody') {
+                justify-content: space-between;
+                .SlideTitledBlock {
+                    &:first-of-type {
+                        flex-basis: 30%;
+                    }
+                    &:nth-of-type(2) {
+                        flex-basis: 60%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.SlideSidebySide6030 {
+        @include generate-style-block('SlideSidebySide6030') {}
+        .SlideBody {
+            @include generate-style-block('SlideSidebySide6030SlideBody') {
+                justify-content: space-between;
+                .SlideTitledBlock {
+                    &:first-of-type {
+                        flex-basis: 60%;
+                    }
+                    &:nth-of-type(2) {
+                        flex-basis: 30%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.SlideTopandBottom5050 {
+        @include generate-style-block('SlideTopandBottom5050') {}
+        .SlideBody {
+            @include generate-style-block('SlideTopandBottom5050SlideBody') {
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+        }
+    }
+
+    &.SlideTwoOverOne {
+        @include generate-style-block('SlideTwoOverOne') {}
+        .SlideBody {
+            @include generate-style-block('SlideTwoOverOneSlideBody') {
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                .RowBreak {
+                    flex-basis: 100%;
+                    height: 0;
+                }
+            }
+        }
+    }
+
+    &.SlideQuadrants {
+        @include generate-style-block('SlideQuadrants') {}
+        .SlideBody {
+            @include generate-style-block('SlideQuadrantsSlideBody') {
+                justify-content: space-evenly;
+                align-items: center;
+                display: grid;
+                grid-template-rows: auto auto;
+                grid-template-columns: auto auto;
+            }
+        }
+    }
+}

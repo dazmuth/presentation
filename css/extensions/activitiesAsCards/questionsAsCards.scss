@@ -1,0 +1,8 @@
+@include customize-style-block('Question') {
+    @extend %card-activity-wrapper;
+}
+
+@include customize-style-block('QuestionStemRichText') {
+    border: 0 solid $basic-color-border;
+    border-bottom-width: 1px;
+}

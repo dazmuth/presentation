@@ -1,0 +1,12 @@
+.BreakoutElement {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -50% !important;
+    margin-right: -50% !important;
+}
+
+.BreakoutContainer {
+    position: relative;
+}

@@ -1,0 +1,16 @@
+.PresenterViewLink {
+    fill: $basic-color-branding3;
+    color: $basic-color-branding3 !important;
+    position: absolute;
+    left: 70px;
+    bottom: 10px;
+    opacity: 1;
+    z-index: 103;
+
+    > * {
+        display: inline-block !important;
+        vertical-align: middle;
+        margin: auto 0.2em;
+        cursor: pointer;
+    }
+}

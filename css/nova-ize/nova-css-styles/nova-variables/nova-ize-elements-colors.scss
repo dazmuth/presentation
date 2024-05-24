@@ -1,0 +1,18 @@
+$elements-color-branding1: $basic-color-branding1;
+$elements-color-branding2: $basic-color-branding2;
+$elements-color-branding3: $basic-color-branding3;
+
+$elements-color-correct: $basic-color-correct;
+$elements-color-incorrect: $basic-color-incorrect;
+
+$elements-color-border: $basic-color-border; 
+$elements-color-page-background: $basic-color-page-background;
+$elements-color-container-background-light: $basic-color-container-background-light;
+$elements-color-container-background-dark: $basic-color-container-background-dark;
+$elements-color-text-dark: $basic-color-text-dark;
+$elements-color-text-lightened: $basic-color-text-lightened;
+$elements-color-text-light: $basic-color-text-light;
+$elements-color-text-links: $elements-color-branding2;
+
+$elements-box-shadow-color: darken($elements-color-container-background-dark, 30%);
+

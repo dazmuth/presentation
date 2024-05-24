@@ -1,0 +1,61 @@
+///*!
+// * @license
+// * Copyright c 2019 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+// * All rights reserved.
+// *
+// * This file and related documentation are protected by copyright and
+// * are distributed under licenses regarding their use, copying, distribution,
+// * and decompilation. No part of this product or related documentation may
+// * be reproduced or transmitted in any form or by any means, electronic or
+// * mechanical, for any purpose, without the express written permission of
+// * Xyleme, Inc.
+//*/
+@include customize-style-block('CourseProgressLink') {
+    position: absolute;
+    #{$left}: 0;
+    top: 0;
+    bottom: auto;
+    height: 4px;
+    width: 100%;
+    text-align: $left;
+    z-index: 101;
+}
+
+@include customize-style-block('CourseProgress') {
+    width: 100%;
+    display: block;
+}
+
+@include customize-style-block('CourseProgressLine') {
+    #{$left}: 0;
+    height: 4px;
+    background: $component-color-text-lightened;
+    border-radius: 0 3px 0 0;
+    position: relative;
+    transition: width 800ms;
+
+    &:before {
+        width: 100%;
+        float: $right;
+        text-align: $right;
+        margin-top: 7px;
+        height: 100%;
+        color: $component-color-text-lightened;
+        font-size: $component-font-size;
+        font-weight: $component-header-font-weight;
+        content: attr(data-progress);
+    }
+
+    &:after {
+        content: ' ';
+        position: absolute;
+        #{$right}: 0;
+        top: 0;
+        height: 100%;
+        width: 100px;
+        transform-origin: top right;
+        transform: rotate(2deg) translate(-1px);
+        box-shadow: -2px 1px 10px $component-color-text-lightened;
+        border-radius: 3px;
+    }
+}

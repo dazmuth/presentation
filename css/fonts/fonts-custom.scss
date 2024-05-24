@@ -1,0 +1,139 @@
+@import '../nova-ize/nova-ize-styles.scss';
+// SVC-692 - Bold formatting not working in FF
+strong, b {
+    font-weight: bold;
+}
+
+/* Proxima is the body font again and used for some of the smaller display
+tags. Only two weights this time. */
+
+@font-face {
+    font-family: Proxima;
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Proxima/ProximaRegular.woff") format("woff");
+}
+
+@font-face {
+    font-family: Proxima;
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/Proxima/ProximaSemiBold.woff") format("woff");
+}
+
+
+/** Nuesa is a headlines (display) only font.
+
+The lightest weight (300) is reserved for infographic type displays at 1.5
+rem of greater.
+
+*/
+
+@font-face {
+    font-family: Neusa;
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/Neusa/NeusaLight.woff") format("woff");
+    unicode-range: U+0020-007E, U+2010-2014;
+    /* limit to a-zA_Z0-9 and some punctuation characters */
+}
+
+@font-face {
+    font-family: Neusa;
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Neusa/NeusaRegular.woff") format("woff");
+}
+
+@font-face {
+    font-family: Neusa;
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/Neusa/NeusaMedium.woff") format("woff");
+}
+
+@font-face {
+    font-family: Neusa;
+    font-style: normal;
+    font-weight: 800;
+    src: url("fonts/Neusa/NeusaBold.woff") format("woff");
+}
+
+// ROBOTO MONO
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('fonts/RobotoMono/RobotoMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+// ROBOTO
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto/Roboto-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}

@@ -1,0 +1,9 @@
+h1, h2, h3, h4, h5 {
+    margin: $content-title-margin;
+    padding: $content-title-padding;
+    line-height: 1em;
+}
+
+h1 {
+    font-size: $basic-h1-font-size;
+}

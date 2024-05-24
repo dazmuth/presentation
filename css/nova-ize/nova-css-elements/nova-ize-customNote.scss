@@ -1,0 +1,47 @@
+%CustomNoteV1 {
+    border-color: $elements-color-branding2;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: $elements-border-radius;
+    background-color: transparent;
+    color: $elements-color-text-dark;
+    box-shadow: none;
+    padding: 25px 22px;
+    max-width: 70%;
+    margin: $elements-margin-centered;
+}
+
+%CustomNoteV2 {
+    border-radius: 5px; // Override of $elements-border-radius
+    border: 1px solid #C8C8CA; // Override of $elements-color-border
+    background-color: #F6F6F4; // Override of $elements-color-background-dark
+    color: $elements-color-text-dark;
+    box-shadow: none;
+    padding: 25px 22px;
+    max-width: 70%;
+    margin: $elements-margin-centered;
+}
+
+@include customize-style-block('CustomNote') {
+    @extend %CustomNoteV2;
+}
+
+@include customize-style-block('CustomNoteIcon') {
+    margin-#{$right}: $elements-margin-bottom;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+@include customize-style-block('CustomNoteContent') {
+    display: flex;
+    
+    & > .SimpleBlock > * {
+        margin: $list-item-vertical-spacing 0 0;
+        &:first-child {
+            margin: 0;
+        }
+        .ListPreamble {
+            margin: $list-item-vertical-spacing 0 0;
+        }
+    }
+}

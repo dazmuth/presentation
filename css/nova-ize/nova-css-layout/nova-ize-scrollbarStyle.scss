@@ -1,0 +1,36 @@
+$scrollbar-border-radius: 8px;
+$scrollbar-color: #838383;
+$scrollbar-face-color: $scrollbar-color;
+$scrollbar-shadow-color: $scrollbar-color;
+$scrollbar-highlight-color: $scrollbar-color;
+$scrollbar-darkshadow-color: $scrollbar-color;
+$scrollbar-track-color: if(variable-exists(content-color-pageinnerwrap-background), $content-color-pageinnerwrap-background, #FFF);
+$scrollbar-arrow-color: transparent;
+
+%scrollbarStyle {
+    &::-webkit-scrollbar {
+        width: 9px;
+        height: 9px;
+    }
+    &::-webkit-scrollbar-button:start:decrement, #doc::-webkit-scrollbar-button:end:increment {
+        display: block;
+        height: 0;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+        -webkit-border-radius: 0;
+        -webkit-border-bottom-right-radius: $scrollbar-border-radius;
+        -webkit-border-bottom-left-radius: $scrollbar-border-radius;
+    }
+    &::-webkit-scrollbar-thumb:vertical {
+        height: 50px;
+        background-color: $scrollbar-color;
+        -webkit-border-radius: $scrollbar-border-radius;
+    }
+    &::-webkit-scrollbar-thumb:horizontal {
+        width: 50px;
+        background-color: $scrollbar-color;
+        -webkit-border-radius: $scrollbar-border-radius;
+    }
+}

@@ -1,0 +1,69 @@
+@include customize-style-block('Question') {
+    text-align: left;
+    margin-bottom: $questions-margin-bottom;
+    width: 100%;
+}
+
+@include customize-style-block('QuestionStem') {
+    & h3[cguid] {
+        // Note: this is required to work around SPS-2859, it targets only
+        // question stem h3 elements in review session (the [cguid] selector)
+        margin: 1.5em 0;
+    }
+}
+
+%questionStemText {
+    font-size: 1rem;
+    color: $questions-color-text-dark;
+    font-weight: 400;
+}
+
+@include customize-style-block('QuestionStemContainer') {
+    @extend %questionStemText;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+@include customize-style-block('QuestionStemRichText') {
+    @extend %questionStemText;
+}
+
+@include customize-style-block('QuestionInnerWrapper') {
+    width: 93%;
+    max-width: $questions-wide-screen-dimension;
+    min-width: $questions-narrow-screen-dimension;
+}
+
+@include customize-style-block('QuestionInnerWrapperWideScreen') {
+    max-width: $questions-wide-screen-dimension;
+    min-width: $questions-narrow-screen-dimension;
+}
+
+@include customize-style-block('QuestionResponseFeedback') {
+    padding: 5px 10px;
+    margin: 0;
+    border: none;
+    font-size: 0.9em;
+}
+
+%questionFeedback {
+    font-size: $basic-font-size;
+}
+
+@include customize-style-block('QuestionPositiveFeedback') {
+    @extend %questionFeedback;
+}
+
+@include customize-style-block('QuestionNegativeFeedback') {
+    @extend %questionFeedback;
+}
+
+@include customize-style-block('QuestionIncorrectNotice') {
+    @extend %questionFeedback;
+}
+
+@include customize-style-block('QuestionAttemptCounter') {
+    margin: 0 10px;
+}

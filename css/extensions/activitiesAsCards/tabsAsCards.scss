@@ -1,0 +1,7 @@
+@include customize-style-block('TabsContainer') {
+    @extend %card-activity-wrapper;
+}
+
+@include customize-style-block('CarouselTabsContainer') {
+    @extend %card-activity-wrapper;
+}

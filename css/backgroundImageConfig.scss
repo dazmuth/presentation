@@ -1,0 +1,48 @@
+$background-image-title-container-config: (
+    // color: inherit
+    // Use the below for HipoCycles-style title container styles
+    // background: rgba(0, 0, 0, 0.3),
+    // padding-left: 10px,
+    // border-radius: 5px,
+    // font-weight: 200,
+    // color: #FFFFFF,
+    // margin-bottom: 5px
+);
+
+$background-image-content-container-config: (
+    // color: inherit
+    // Use the below for HipoCycles-style content container styles
+    // background-color: rgba(255, 255, 255, 0.80),
+    // border-radius: 5px,
+    // padding: 10px
+);
+
+// Note that !important has been added due to the way that background image is being loaded in this output
+// background properties were being overridden by core's content.scss, meaning that background images would repeat
+$background-image-container-config: (
+    background: none,
+    background-size: cover!important,
+    background-position: center!important,
+    background-clip: border-box!important,
+    background-repeat: no-repeat!important
+);
+
+$background-image-page-body-config: (
+    padding: 30px,
+    background-color: rgba(255, 255, 255, 0.9)
+);
+
+$background-image-page-body-narrow-config: (
+    // Use the below when using a left-to-right gradient, for example.
+    // width: 50%
+);
+
+$background-image-spinner-wrap-config: (
+    position: absolute,
+    top: 0px,
+    bottom: 0px,
+    left: 0px,
+    right: 0px,
+    background: white,
+    z-index: 96
+);

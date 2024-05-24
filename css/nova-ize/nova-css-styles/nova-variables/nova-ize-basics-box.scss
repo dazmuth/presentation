@@ -1,0 +1,18 @@
+$basic-padding: 0;
+
+$basic-margin-top: 0;
+$basic-margin-right: 0;
+$basic-margin-bottom: 25px;
+$basic-margin-left: 0;
+$basic-margin: $basic-margin-top $basic-margin-right $basic-margin-bottom $basic-margin-left;
+$basic-margin-centered: $basic-margin-top auto $basic-margin-bottom;
+
+$basic-transition-duration: 200ms;
+
+$basic-border-width: 2px;
+$basic-border-radius: 3px;
+
+$basic-horizontal-alignment: center;
+$basic-vertical-alignment: middle;
+
+$basic-icon-dimension: 30px;

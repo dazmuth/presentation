@@ -1,0 +1,93 @@
+ @include customize-style-block('TableTitleWrapper') {
+    margin: $elements-margin;
+    font-weight: 400;
+    color: $elements-color-branding3;
+
+    &:empty {
+        display: none;
+    }
+}
+
+@include customize-style-block('TableCellContent') {
+    padding: 5px;
+
+    .RichText {
+        margin: 0;
+    }
+}
+
+//Fix header row colors
+//@include customize-style-block('TableHeaderRow') {
+//    color: $elements-color-text-dark;
+//    background: $elements-color-container-background-light;
+//}
+
+//Custom Table Theme Settings
+@include customize-style-block('Table') {
+  
+  &.Console-Dark {
+    
+    .TableRow {
+      
+      color: #FFFFFF;
+      background: #000000;
+      font-family: $basic-monospace-font-body;
+      
+      .TableCell {
+        color: inherit;
+      }
+      
+      &.TableHeaderRow {
+      	color: #FFFFFF;
+        	background: #000000;
+        	font-family: $basic-monospace-font-body;
+        
+      }            
+    
+      &.TableFooterRow {
+      	color: #FFFFFF;
+        	background: #000000;
+        	font-family: $basic-monospace-font-body;
+        
+        .TableCell {
+          color: inherit;
+        }
+        
+      }
+        
+      }
+      
+    }
+    
+    
+  &.Console-LtGrey {
+    
+    .TableRow {
+      
+      color: #000000;
+      background: #F2F2F2;
+      font-family: $basic-monospace-font-body;
+      
+      .TableCell {
+        color: inherit;
+      }
+      
+      &.TableHeaderRow {
+      	color: #000000;
+        	background: #F2F2F2;
+        	font-family: $basic-monospace-font-body;
+        
+      }
+    
+      &.TableFooterRow {
+      	color: #000000;
+        	background: #F2F2F2;
+        	font-family: $basic-monospace-font-body;
+        
+      }
+        
+      }
+      
+    } 
+  
+  }

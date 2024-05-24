@@ -1,0 +1,39 @@
+//swap margin-bottom for margin-top to give more consistent spacing (especially in the case of sub-lists)
+$list-margin: if(variable-exist(list-item-vertical-spacing), $list-item-vertical-spacing, 0.5em) 0;
+
+@include customize-style-block('ListPreamble') {
+    margin: $list-preamble-margin; 
+}
+
+@include customize-style-block('ListItems') {
+    // margin: if(variable-exist(list-item-vertical-spacing), $list-item-vertical-spacing, 0.5em) $list-item-left-spacing;
+    // padding-#{$left}: $list-item-left-spacing;
+    // ------------------------
+    // Override for Online Slides
+    margin: 0.5em 0 !important;
+    padding-#{$left}: 2em;
+    list-style-position: outside;
+}
+
+@include customize-style-block('ListItem') {
+    margin: $list-margin;
+}
+
+@include customize-style-block('ListItemBefore') {
+    width: 2em;
+}
+
+// NOTE: Repeat list styles for educational objectives! There are no core styles for these!
+.ObjectiveIntro {
+    margin: $list-preamble-margin; 
+}
+
+.EducationalObjective > ul {
+    margin: if(variable-exist(list-item-vertical-spacing), $list-item-vertical-spacing, 0.5em) $list-item-left-spacing;
+    padding-#{$left}: $list-item-left-spacing;
+    list-style-position: outside;
+}
+
+.EnablingObjective {
+    margin: ($elements-margin-bottom/2) 0;
+}

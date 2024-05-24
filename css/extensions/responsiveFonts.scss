@@ -1,0 +1,68 @@
+
+// @TODO Something below causes hottext popups to be full-height.
+
+
+html {
+    font-size: calc(1em + 0.5vw);
+}
+
+@media #{$basic-screen-query-normal} {
+    html {
+        font-size: 1em;
+    }
+}
+
+@media #{$basic-screen-query-wide} {
+    html {
+        font-size: calc(0.7em + 0.5vw);
+    }
+}
+// Fix for user-agent styles
+input {
+    font-size: inherit;
+}
+
+@include customize-style-block('PageHeaderTitle') {
+    font-size: 1.2em;
+}
+
+@include customize-style-block('HeaderInnerWrapCourseTitleContainer') {
+    font-size: inherit;
+}
+
+@include customize-style-block('CourseProgressLink') {
+    font-size: 0.8em!important;
+}
+
+@include customize-style-block('ListItemBefore') {
+    width: 2em;
+    margin-left: -2em;
+}
+
+@include customize-style-block('TableWrapper') {
+    margin: $basic-margin;
+}
+
+@include customize-style-block('FootnoteContent') {
+    padding-#{left}: 1.5em;
+}
+
+@include customize-style-block('PopupWrapper') {
+    line-height: 1.2em;
+}
+
+@include customize-style-block('PopupContent') {
+    padding: 1.5em 1.2em;
+}
+
+@include customize-style-block('NavigationTreeNodeLink') {
+    line-height: 1.2rem;
+    font-size: 0.8em;
+}
+
+// causes issues with PresenterView nav buttons padding should be made to be more specefic 
+
+/*@include customize-style-block('Button') {
+    height: 1.8em;
+    padding: 0px 1em !important;
+}*/

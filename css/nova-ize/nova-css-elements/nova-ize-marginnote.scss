@@ -1,0 +1,11 @@
+@include customize-style-block('MarginNoteWrapperMarginNoteNormalWide') {
+    border-top: solid 1px lighten($elements-color-branding3, 13%);
+}
+
+@include customize-style-block('MarginNoteWrapperMarginNoteHover') {
+    border-top: solid 1px $elements-color-branding3;
+}
+
+@include customize-style-block('MarginNoteSVGIcon') {
+    fill: $elements-color-branding3;
+}

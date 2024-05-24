@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>_Online Slides - Presenter View</title><script>
+    // Set up general environment info
+    window.Xyleme                                   = window.Xyleme || {};
+    window.Xyleme.environment                       = window.Xyleme.environment || {};
+
+    window.Xyleme.environment.type                  = 'web';
+    window.Xyleme.environment.outputType            = 'OnlineSlides[F5_2022_OS]';
+    window.Xyleme.environment.LMS                   = '';
+    window.Xyleme.environment.SCORM_TYPE            = '';
+    window.Xyleme.environment.IS_AICC               = false;
+    window.Xyleme.environment.lang                  = 'en';
+    // The cache-bust value based on Promotion Time of the output as opposed to runtime
+    window.Xyleme.environment.BUILD_TIME_CACHE_BUST = 'buildTime=16%3A55%3A40.914Z';
+    // Whether or not to allow the caching of content during previews (or CDS/BCP previews)
+    window.Xyleme.environment.ALLOW_PREVIEW_CACHING = false;
+    window.Xyleme.environment.IS_DEPLOY             = true;
+
+    // Determine if we are in a Review Session based on the value (or existence) of the "el" param
+    window.Xyleme.environment.ReviewSession = false;
+
+    // The request ID of the preview, used to create a preview scope with the server:
+    window.Xyleme.environment.REQUEST_ID            = '';
+
+    // The Regular Expression to identify a guid
+    window.Xyleme.environment.GUID_REGEX            = /(\w{8}-(\w{4}-){3}\w{12}|\w{8}-\w{8}-\w{5}-\w{4}-\w{16})(_xref)?/;
+
+    window.Xyleme.environment.FRAGMENT_CACHING_AVAILABLE = false;
+
+    window.Xyleme.environment.CLOUDFRONT_BASE_URL = '';
+
+    window.Xyleme.environment.XPE_PUBLIC_VERSION = '2023.08.09';
+    window.Xyleme.environment.XPE_PUBLIC_VERSION_INT = 2023089;
+    window.Xyleme.environment.XPE_BUILD_VERSION = '2023.08.09';
+    window.Xyleme.environment.XPE_BUILD_VERSION_INT = 2023089;
+
+    // Will be depreciated in the future
+    window.LMS                                      = window.Xyleme.environment.LMS;
+    window.SCORM_TYPE                               = window.Xyleme.environment.SCORM_TYPE;
+    window.IS_AICC                                  = window.Xyleme.environment.IS_AICC;
+
+    /*
+     * WPS-2952
+     * Ensure that if the "window.onload" event fires before the entirety of the
+     * application JavaScript has loaded (as it will be loaded in asynchronously)
+     * that we inform it that page content has already been loaded, including images
+     * (this is required for page-specific preview and CDS Learning Object previews)
+     */
+    window.Xyleme.environment.loaded = false;
+    window.addEventListener('load', function xySetWindowLoaded () {
+        window.removeEventListener('load', xySetWindowLoaded, false);
+        window.Xyleme.environment.loaded = true;
+    });
+</script><link href="css/application.css?cacheBust=16%3A55%3A40.914Z" rel="stylesheet" type="text/css" media="all"></head><body><div id="PresenterViewWrapper"><div class="Spinner"></div><div class="SlideThumbnailsWrapper"><div class="SlideThumbnailContainer"></div></div><div class="NavigationButtonsWrapper"><button id="BackButton" title="Back" class="Button">&#5130;</button><span id="SlideCount">Slide <span id="CurrentSlideIndex">?</span> of <span id="SlideMaxIndex">?</span></span><button id="NextButton" class="Button" title="Next">&#5125;</button><button id="BlackscreenButton" class="Button" title="Toggle Black Screen">&#9680;</button></div><div class="PreviewAndNotesWrapper"><div class="SlidePreviewWrapper"><span id="SlidePreviewDisclaimer">Responsive Slide Content Preview (not to scale, view is approximate, non-interactive)</span><div class="SlidePreviewContainer"></div></div><div class="VerticalDivider"></div><div class="SlideNotesContainer"></div><div class="VisualCueWrapper" style="position:fixed;bottom:30px;right:24px;display:none;"><a class="ComponentLink VisualCueLink VisualCue Visible" data-component="visualCue" title="" tabindex="0"><svg viewBox="0 0 24 24" class="SVGIcon ComponentLinkIcon VisualCueIcon Visible" preserveAspectRatio="xMidYMid meet" width="24px" height="24px"><g ref="visual-cue"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></g></svg><span class="ComponentLinkTitle VisualCueTitle Visible"></span></a></div></div></div><script>
+        // @IMPORTANT! All ampersands will need to be encoded as HTML entites due to the limitations of the XSLT engine
+
+        // Initialize object:
+        window.presenterView = {
+            // Shared broadcast channel
+            broadcastChannel: new BroadcastChannel('xyleme_presenter_view'),
+            // Placeholder for the current slide's slide notes
+            slideNotes: undefined
+        }
+
+        // Receive messages from the main window
+        function getMessageData (e) {
+            var newDiv;
+            switch (e.data.type) {
+                case 'updateSlideNotes':
+                    if (e.data.notes && e.data.notes.length) {
+                        document.getElementsByClassName('Spinner')[0].style.display = 'none';
+                        document.getElementsByClassName('SlideNotesContainer')[0].innerHTML = e.data.notes.join('\n');
+                    } else if (e.data.notes && e.data.notes.length === 0) {
+                        document.getElementsByClassName('Spinner')[0].style.display = 'none';
+                        document.getElementsByClassName('SlideNotesContainer')[0].innerText = 'No notes.';
+                    }
+                    window.presenterView.toggleVisualCue();
+                    break;
+                case 'spinner':
+                    if (e.data.action === 'show') {
+                        document.getElementsByClassName('Spinner')[0].style.display = 'block';
+                        document.getElementsByClassName('SlidePreviewContainer')[0].style.opacity = 0.5;
+                        // document.getElementsByClassName('SlideNotesContainer')[0].innerText = '';
+                        // document.getElementsByClassName('SlidePreviewContainer')[0].innerHTML = '';
+                    } else {
+                        document.getElementsByClassName('Spinner')[0].style.display = 'none';
+                        document.getElementsByClassName('SlidePreviewContainer')[0].style.opacity = 1;
+                    }
+                    break;
+                case 'updateSlidePreview':
+                    document.getElementsByClassName('Spinner')[0].style.display = 'none';
+                    document.getElementsByClassName('SlidePreviewContainer')[0].innerHTML = e.data.content;
+                    break;
+                case 'updateSlideThumbnails':
+                    document.getElementsByClassName('SlideThumbnailContainer')[0].innerHTML = e.data.content;
+
+                    [].forEach.call(document.getElementsByClassName('NavigationNode'), function(element) {
+                        element.querySelectorAll('.NavigationTreeItem').forEach(function (el,index) {
+                            if (index > 0) {
+                                if (!el.children.length) {
+                                    el.remove();
+                                } else {
+                                    newDiv = document.createElement('div');
+                                    newDiv.innerHTML = el.innerHTML;
+                                    el.parentNode.replaceChild(newDiv, el);
+                                }
+                            }
+                        });
+                        element.querySelectorAll('.NavigationTreeItem').forEach(function (el) {
+                            if (el.nextElementSibling != null) {
+                                if (el.nextElementSibling.classList.contains('NavigationThumbnail')) {
+                                    el.appendChild(el.nextElementSibling);
+                                }
+                            }
+                        });
+                        element.querySelectorAll('.NavigationTreeItem').forEach(function (el) {
+                            if (el.nextElementSibling != null) {
+                                if (el.nextElementSibling.classList.contains('NavgationTreeItemLabel')) {
+                                    el.appendChild(el.nextElementSibling);
+                                }
+                            }
+                        });
+                    });
+
+                    Array.prototype.forEach.call(document.getElementsByClassName('NavigationTreeItem'), function(element) {
+                        element.onclick = window.presenterView.requestChoice;
+                    });
+                    break;
+                case 'updatePageCount':
+                    document.getElementById('CurrentSlideIndex').innerText = e.data.current || '?'
+                    document.getElementById('SlideMaxIndex').innerText = e.data.max || '?'
+                    break;
+                case 'updateNavigationButtons':
+                    
+                    break;
+                default:
+                    console.log(e.data);
+                    break;
+            }
+        }
+
+        window.presenterView.broadcastChannel.onmessage = getMessageData;
+
+        window.presenterView.broadcastChannel.onmessageerror = function (e) {
+            console.log(e);
+        };
+
+        window.presenterView.toggleVisualCue = function () {
+            var element = document.getElementsByClassName('SlideNotesContainer')[0].childNodes[0];
+            var visualCueWrapper = document.getElementsByClassName('VisualCueWrapper')[0];
+            if (element.scrollHeight > element.clientHeight) {
+                visualCueWrapper.style.display="block";
+            } else {
+                visualCueWrapper.style.display="none";
+            }
+            element.addEventListener('scroll', function(e) {
+                if (element.scrollHeight === Math.ceil(element.clientHeight + element.scrollTop) ||
+                    element.scrollHeight === Math.floor(element.clientHeight + element.scrollTop) ||
+                    element.scrollHeight === Math.ceil(element.clientHeight + element.scrollTop) + 1 ||
+                    element.scrollHeight === Math.floor(element.clientHeight + element.scrollTop) -1) {
+                    visualCueWrapper.style.display="none";
+                }
+            });
+        };
+
+        // Send messages to the main window
+        window.presenterView.requestPrevious = function () {
+            // document.getElementsByClassName('SlideNotesContainer')[0].innerText = '';
+            window.presenterView.broadcastChannel.postMessage({
+                type: 'blackscreen',
+                action: 'hide'
+            });
+            window.presenterView.broadcastChannel.postMessage({
+                type: 'requestNavigation',
+                direction: 'back'
+            });
+        };
+
+        window.presenterView.requestNext = function () {
+            window.presenterView.broadcastChannel.postMessage({
+                type: 'blackscreen',
+                action: 'hide'
+            });
+            window.presenterView.broadcastChannel.postMessage({
+                type: 'requestNavigation',
+                direction: 'next'
+            });
+        };
+
+        window.presenterView.requestChoice = function (e) {
+            var targetItem = e.currentTarget.id;
+
+            if (targetItem) {
+                window.presenterView.broadcastChannel.postMessage({
+                    type: 'blackscreen',
+                    action: 'hide'
+                });
+                window.presenterView.broadcastChannel.postMessage({
+                    type: 'requestNavigation',
+                    direction: 'choice',
+                    item: targetItem
+                });
+            }
+        };
+
+        window.presenterView.toggleBlackscreen = function () {
+            window.presenterView.broadcastChannel.postMessage({
+                type: 'blackscreen',
+                action: 'toggle'
+            });
+        };
+
+        // Initialize with data from the main window
+        window.presenterView.broadcastChannel.postMessage({type: 'getCurrentSlideNotes'});
+        window.presenterView.broadcastChannel.postMessage({type: 'getCurrentSlidePreview'});
+        window.presenterView.broadcastChannel.postMessage({type: 'getSlideThumbnails'});
+        window.presenterView.broadcastChannel.postMessage({type: 'getPageCount'});
+        // TODO implement to get navigation button statuses
+        // window.presenterView.broadcastChannel.postMessage({type: 'getNavigationButtons'});
+
+        // Click handlers for sending messages
+        document.getElementById('BackButton').onclick = window.presenterView.requestPrevious;
+        document.getElementById('NextButton').onclick = window.presenterView.requestNext;
+        document.getElementById('BlackscreenButton').onclick = window.presenterView.toggleBlackscreen;
+
+        // Keyboard event handlers
+        document.addEventListener('keydown', function (event) {
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                    window.presenterView.requestNext()
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    window.presenterView.requestPrevious();
+                    break;
+                case 'KeyB':
+                    // b key
+                    // black screen
+                    window.presenterView.toggleBlackscreen();
+                    break;
+                case 'Escape':
+                    // escape key
+                    // close presenter view
+                    window.presenterView.broadcastChannel.postMessage({
+                        type: 'closePresenterView'
+                    });
+                    // clear black screen
+                    window.presenterView.broadcastChannel.postMessage({
+                        type: 'blackscreen',
+                        action: 'hide'
+                    });
+                    break;
+                default:
+                    // on any keypress, if the black screen is already shown, it should be hidden
+                    window.presenterView.broadcastChannel.postMessage({
+                        type: 'blackscreen',
+                        action: 'hide'
+                    });
+                    break;
+            }
+        });
+    </script></body></html>

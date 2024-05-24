@@ -1,0 +1,157 @@
+%matchingOptions {
+    background-color: $questions-color-container-background-light;
+    border: 1px solid $questions-color-branding1;
+}
+
+@include customize-style-block('MatchingQuestionOption') {
+    @extend %matchingOptions;
+}
+
+@include customize-style-block('MatchingQuestionDistractorWrapper') {
+    @extend %matchingOptions;
+    max-width: $matching-max-width;
+    min-width: $matching-min-width;
+}
+
+@include customize-style-block('MatchingQuestionMatchWrapper') {
+    @extend %matchingOptions;
+    max-width: $matching-max-width;
+    min-width: $matching-min-width;
+}
+
+%matchingOptionsSelected {
+    color: $questions-color-text-light;
+    background-color: $questions-color-branding1;
+    border: 1px solid $questions-color-branding1;
+}
+
+@include customize-style-block('MatchingQuestionOptionSelected') {
+    @extend %matchingOptionsSelected;
+}
+
+@include customize-style-block('MatchingQuestionDistractorSelected') {
+    @extend %matchingOptionsSelected;
+}
+
+@include customize-style-block('MatchingQuestionMatchSelected') {
+    @extend %matchingOptionsSelected;
+}
+@include customize-style-block('MatchingQuestionOptionHover') {
+    @extend %matchingOptionsSelected;
+}
+
+@include customize-style-block('MatchingQuestionDistractorHover') {
+    @extend %matchingOptionsSelected;
+}
+
+@include customize-style-block('MatchingQuestionMatchHover') {
+    @extend %matchingOptionsSelected;
+}
+
+@include customize-style-block('MatchingQuestionConnector') {
+    stroke: $questions-color-branding1;
+    stroke-width: 2px;
+}
+
+%matchingDots {
+    @extend %matchingOptions;
+}
+
+@include customize-style-block('MatchingQuestionHandleWrapper') {
+    @extend %matchingDots;
+}
+
+@include customize-style-block('MatchingQuestionDistractorHandleWrapper') {
+    @extend %matchingDots;
+}
+
+%matchingDotsSelected {
+    background-color: $questions-color-branding1;
+    border-color: $questions-color-branding2;
+}
+
+@include customize-style-block('MatchingQuestionDistractorHoverHandleWrapper') {
+    @extend %matchingDotsSelected;
+}
+
+@include customize-style-block('MatchingQuestionDistractorSelectedHandleWrapper') {
+    @extend %matchingDotsSelected;
+}
+
+@include customize-style-block('MatchingQuestionMatchSelectedHandleWrapper') {
+    @extend %matchingDotsSelected;
+}
+
+// The "hover" style block for match handles is incorrectly labeled as the standard one in core
+// whereas the standard style block for match handles is incorrectly labled as "MatchingQuestionHandleWrapper"
+@include customize-style-block('MatchingQuestionMatchHandleWrapper') {
+    @extend %matchingDotsSelected;
+}
+
+// RESPONSIVE Styles
+
+// Default
+@include customize-style-block('MatchingQuestionMatchWrapperResponsive') {
+    border: none;
+    background-color: $questions-color-container-background-light;
+    color: $questions-color-text-dark;
+}
+
+// Hover
+@include customize-style-block('MatchingQuestionMatchWrapperResponsiveHover') {
+    background-color: #fbfcfc;
+    border: none;
+}
+
+// BIN
+@include customize-style-block('MatchingQuestionsDistractorsBin') {
+    background: transparentize($questions-color-branding2, 0.2);
+    border: 2px solid #868686;
+    box-shadow: 0px 3px 2px #cacaca;
+}
+
+@include customize-style-block('MatchingQuestionsDistractorsBinIndex') {
+    background: $questions-color-branding2;
+    color: $questions-color-text-light;
+}
+
+@include customize-style-block('MatchingQuestionsDistractorsBinIndexAnswered') {
+    color: transparent;
+    background: transparentize($questions-color-branding2, 0.5);
+}
+
+@include customize-style-block('MatchingQuestionsBinIndicesToggleButton') {
+    background: transparentize($questions-color-branding2, 0.4);
+    color: $questions-color-text-light;
+}
+
+@include customize-style-block('MatchingQuestionsBinIndicesToggleButtonHover') {
+    opacity: 0.8;
+    background: $questions-color-branding2;
+}
+
+.PopupContent {
+    @include customize-style-block('MatchingQuestionDistractorWrapper') {
+        width: 100%;
+        @media #{$basic-screen-query-narrow} {
+            max-width: $popup-matching-min-width;
+            min-width: $popup-matching-min-width;
+        }
+        @media #{$basic-screen-query-wide} {
+            max-width: $matching-max-width;
+            min-width: $matching-min-width;
+        }
+    }
+    
+    @include customize-style-block('MatchingQuestionMatchWrapper') {
+        width: 100%;
+        @media #{$basic-screen-query-narrow} {
+            max-width: $popup-matching-min-width;
+            min-width: $popup-matching-min-width;
+        }
+        @media #{$basic-screen-query-wide} {
+            max-width: $matching-max-width;
+            min-width: $matching-min-width;
+        }
+    }   
+}

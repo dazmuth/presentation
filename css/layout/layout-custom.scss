@@ -1,0 +1,6 @@
+@import '../nova-ize/nova-ize-layout.scss';
+@import '../presenterView/presenterView.scss';
+
+@include customize-style-block('PageBodyWrapper') {
+    margin-bottom: 0;
+}

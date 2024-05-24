@@ -1,0 +1,21 @@
+$tooltip-width: 5px;
+
+@include customize-style-block('TooltipWrapper') {
+    .PopupContent {
+        @include generate-style-block('TooltipPopupContent') {
+            &::before {
+                width: $tooltip-width;
+                min-width: $tooltip-width;
+                background-color: $elements-color-branding3;
+                content: '';
+                display: inline-block;
+                min-height: 50%;
+                vertical-align: $elements-vertical-alignment;
+                position: absolute;
+            }
+            > * {
+                margin-#{$left}: 15px;
+            }
+        }
+    }
+}

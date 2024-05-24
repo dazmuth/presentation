@@ -1,0 +1,100 @@
+@include customize-style-block('Procedure') {   
+    .Title {
+        @include generate-style-block('ProcedureTitle') {
+            font-size: 1.4em;
+        }
+    }
+
+    .SubTitle {
+        @include generate-style-block('ProcedureSubTitle') {
+            font-size: $procedure-subtitle-font-size;
+        }
+    }
+
+    %procedureNestedTitledElement {
+        margin: $elements-margin;
+
+        h1 {
+            font-size: $procedure-subtitle-font-size;
+        }
+    }
+
+    .Resources {
+        @include generate-style-block('ProcedureResources') {
+           @extend %procedureNestedTitledElement;
+        }
+    }
+
+    .TitledBlock {
+        @include generate-style-block('ProcedureTitledBlock') {
+            @extend %procedureNestedTitledElement;
+        }
+    }
+}
+
+@include customize-style-block('ProcedureStepHeadExpandIcon') {
+    transform: none;
+    text-align: $elements-horizontal-alignment;
+    margin: 0 15px 0 0;
+
+    $expand-icon-dimension: 20px;
+    &:before {
+        display: block;
+        content: "+";
+        background-color: $elements-color-branding1;
+        color: $elements-color-text-light;
+        width: $expand-icon-dimension;
+        height: $expand-icon-dimension;
+        border-radius: $expand-icon-dimension/2;
+        line-height: 19px;
+        font-family: arial;
+    }
+}
+
+@include customize-style-block('ProcedureStepOpenStepHeadExpandIcon') {
+    transform: none;
+
+    &:before {
+        content: "-";
+    }
+}
+
+@include customize-style-block('ProcedureStepGroup') {
+    margin: $elements-margin;
+
+    > .Title {
+        @include generate-style-block('ProcedureStepGroupTitle') {
+            color: $elements-color-branding1;
+        }
+    }
+}
+
+@include customize-style-block('ProcedureStep') {
+    border: 0px solid $elements-color-text-dark;
+    border-bottom-width: $elements-border-width;
+    margin: $elements-margin;
+}
+
+@include customize-style-block('ProcedureStepHead') {
+    padding: $elements-padding;
+    color: $elements-color-text-dark;
+    background: $elements-color-container-background-light;
+}
+
+@include customize-style-block('ProcedureStepNumber') {
+    margin-#{$right}: 20px;
+}
+
+@include customize-style-block('ProcedureStepUserAction') {
+    padding: 0 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+@include customize-style-block('ProcedureStepUserActionNestedDiv') {
+    margin: 0  25px 25px 0;
+
+    div {
+        margin: 0  25px 25px 0;
+    }
+}

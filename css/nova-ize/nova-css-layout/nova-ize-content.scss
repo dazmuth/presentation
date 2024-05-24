@@ -1,0 +1,87 @@
+.Button {
+    @include generate-style-block('Button') {
+        height: 34px;
+        min-width: 100px;
+        padding: 0px 10px!important;
+        color: $layout-color-text-light;
+        fill: $layout-color-text-light;
+        text-shadow: none!important;
+        cursor: pointer;
+        background-color: $layout-color-branding2!important;
+        font-size: 1em!important;
+        font-weight: 200!important;
+        text-transform: uppercase;
+
+        border: none!important;
+        @include prefix(border-radius, 0px);
+
+        .SVGIcon {
+            @include generate-style-block('ButtonSVGIcon') {
+                width: 18px;
+                height: 18px;
+                @if $dir == rtl {
+                    margin-left: 4px;
+                } @else {
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: darken($layout-color-branding2, 10%)!important;
+        }
+
+        &:active {
+            background-color: darken($layout-color-branding2, 10%)!important;
+            @include prefix(box-shadow, 0 0 3px #333 inset);
+        }
+    }
+}
+
+@include customize-style-block('PageOuterWrap') {
+    display: flex;
+    height: if(variable-exists(content-pageouterwrap-height-calc), $content-pageouterwrap-height-calc, (calc(100% - #{$header-height} - #{$footer-height})));
+}
+
+@include customize-style-block('PageInnerWrap') {
+    flex: 1 1 auto;
+}
+
+@include customize-style-block('PageBodyWrapper') {
+    padding: $layout-padding;
+    margin-bottom: $innerfooter-height;
+}
+
+@include customize-style-block('PageBody') {
+    margin: $content-pagebody-margin-wide;
+    line-height: $basic-text-line-height;
+}
+
+@include customize-style-block('PageBodyButtonNarrowScreen') {
+    margin: $content-pagebody-margin-wide;
+}
+
+@include customize-style-block('PageBodyButtonNormalScreen') {
+    margin: $content-pagebody-margin-wide;
+}
+
+@include customize-style-block('PageBodyButtonWideScreen') {
+    margin: $content-pagebody-margin-wide;
+}
+
+@include customize-style-block('Body') {
+    @extend %scrollbarStyle;
+}
+
+@include customize-style-block('Title') {
+    margin: $content-title-margin;
+    padding: $content-title-padding;
+
+    &:empty {
+        display: none;
+    }
+}
+
+@include customize-style-block('SkipToContentLink') {
+    background: none;
+}

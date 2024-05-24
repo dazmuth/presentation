@@ -1,0 +1,22 @@
+@include customize-style-block('FootnoteMarkerPlaceholder') {
+    color: $elements-color-branding3;
+}
+
+@include customize-style-block('FootnoteContentHover') {
+    color: $elements-color-branding3;
+    border-top-color: $elements-color-branding3;
+}
+
+@include customize-style-block('FootnoteContent:hoverBefore') {
+    background: $elements-color-branding3;
+}
+
+$lightened-footnote-color: lighten($elements-color-branding3, 20%);
+
+@include customize-style-block('FootnoteContent') {
+    border-color: $lightened-footnote-color;
+}
+
+@include customize-style-block('FootnoteContentBefore') {
+    background: $lightened-footnote-color;
+}

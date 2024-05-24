@@ -1,0 +1,70 @@
+@import './backgroundImageConfig.scss';
+
+@mixin print-map($declarations) {
+    @each $property, $value in $declarations {
+        #{$property}: $value
+    }
+}
+
+%bgImageTitleContainer {
+    @include print-map($background-image-title-container-config);
+}
+
+%bgImageContentContainer {
+    @include print-map($background-image-content-container-config);
+}
+
+#BackgroundImage {
+    @include element-invisible;
+    height: 0!important;
+}
+
+//Full Screen Stuff
+.FullBackgroundImage {
+    @include print-map($background-image-container-config);
+    z-index: 1;
+    position: relative;
+
+    #PageBody {
+        background: none;
+        position: relative;
+        z-index: 1;
+        @include print-map($background-image-page-body-config);
+
+        @media #{$basic-screen-query-narrow} {
+            @include print-map($background-image-page-body-narrow-config);
+        }
+    }
+
+    .Topic > .Title {
+        @extend %bgImageTitleContainer !optional;
+    }
+
+    .Cover > .Title {
+        @extend %bgImageTitleContainer !optional;
+    }
+
+    .QuestionBlock > .Title {
+        @extend %bgImageTitleContainer !optional;
+    }
+
+    .Procedure > .Title {
+        @extend %bgImageTitleContainer !optional;
+    }
+
+    .Topic > .ParaBlock * {
+       @extend %bgImageContentContainer !optional;
+    }
+
+    .Procedure > .StepGroup {
+        @extend %bgImageContentContainer !optional;
+        .StepHead {
+            background: none;
+        }
+    }
+
+}
+
+.SpinnerWrap {
+    @include print-map($background-image-spinner-wrap-config);
+}

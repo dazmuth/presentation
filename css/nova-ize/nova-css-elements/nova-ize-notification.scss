@@ -1,0 +1,16 @@
+@include customize-style-block('NotificationWrapper') {
+    padding-top: 0;
+}
+
+@include customize-style-block('NotificationPopupButtonsWrapper') {
+    background-color: $elements-color-container-background-light;
+    border-top: none;
+    margin: 0;
+    padding: 0;
+}
+
+@include customize-style-block('NotificationButton') {
+    @extend .Button;
+    margin: 0 10px 25px;
+    min-width: 100px;
+}

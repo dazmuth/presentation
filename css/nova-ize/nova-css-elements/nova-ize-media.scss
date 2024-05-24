@@ -1,0 +1,7 @@
+@include customize-style-block('Movie') {
+    margin: $elements-margin;
+}
+
+@include customize-style-block('EmbedMovie') {
+    margin: $elements-margin;
+}

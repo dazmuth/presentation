@@ -1,0 +1,4 @@
+@include customize-style-block('ParaBlockRichText') {
+    width: $centered-block-width;
+    margin: $elements-margin-top auto $elements-margin-bottom auto;
+}

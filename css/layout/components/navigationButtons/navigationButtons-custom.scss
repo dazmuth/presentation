@@ -1,0 +1,23 @@
+#{map-get($BLOCK_SELECTORS, 'PageFooter')} {  
+  	@include customize-style-block('NavigationButtonsLink') {
+      	.NavigationButton {
+          	background-color: transparent !important; 
+
+          	&:hover {
+              	background-color: transparent !important;  
+          	}
+        
+          	.SVGIcon {
+              	fill: $basic-color-branding1;
+
+              	&:hover {
+                  	fill: $basic-color-branding2;
+              	}
+              	.Disabled {
+                	fill: gray;
+              	}
+          	}
+      	}
+  	}
+}
+

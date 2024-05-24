@@ -1,0 +1,24 @@
+@include customize-style-block('MultipleChoiceQuestionOptionWrapper') {
+    border: none!important;
+    background-color: $questions-color-container-background-light;
+    padding: 10px;
+}
+
+@include customize-style-block('MultipleChoiceQuestionOptionInputWrapper') {
+    border: none!important;
+    margin-#{$right}: 10px;
+}
+
+@include customize-style-block('MultpleChoiceQuestionOptionDistractorWrapper') {
+    border: none!important;
+}
+
+@include customize-style-block('MultipleChoiceQuestionOptionWrapperEnabledHover') {
+    border: inherit;
+    background-color: darken($questions-color-container-background-light, 5%);
+}
+
+@include customize-style-block('MultipleChoiceQuestionOptionWrapperEnabledDesktopHover') {
+    background: inherit;
+    border: inherit;
+}

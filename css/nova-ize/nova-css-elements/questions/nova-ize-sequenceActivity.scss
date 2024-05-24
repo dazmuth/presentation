@@ -1,0 +1,14 @@
+// Note that "Sequence" is spelled incorrectly on purpose, because that's how it is in core.
+@include customize-style-block('SeqeunceActivityOptionWrapper') {
+    margin: 0 0 5px;
+    padding: 15px;
+}
+
+@include customize-style-block('SequenceActivityDistractorStem') {
+    float: left;
+    margin: 10px 10px 0px;
+}
+
+@include customize-style-block('SeqeunceActivityFeedbackIcon') {
+    margin: 0 10px 0 0;
+}

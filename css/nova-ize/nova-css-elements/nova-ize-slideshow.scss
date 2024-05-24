@@ -1,0 +1,10 @@
+@include customize-style-block('Slideshow') {
+    margin: $elements-margin-centered;
+}
+
+@include customize-style-block('SlideshowPagination') {
+    top: -20px;
+    @media #{$basic-screen-query-normal} {
+        top: -18px;
+    }
+}

@@ -1,0 +1,12 @@
+$quote-padding: 30px;
+
+@include customize-style-block('QuoteBlock') {
+    margin: $elements-margin;
+    padding: $quote-padding;
+    // For the quote icon
+    padding-#{$left}: 100px;
+}
+
+@include customize-style-block('QuoteBlockBefore') {
+    padding-top: $quote-padding;
+}

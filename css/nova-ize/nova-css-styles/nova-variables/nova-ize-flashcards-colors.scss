@@ -1,0 +1,6 @@
+$flashcards-color-cardfront-background: $elements-color-branding2;
+$flashcards-color-cardback-background: $elements-color-branding1;
+$flashcards-color-cardchoose-background: $elements-color-branding3;
+
+$flashcards-color-correctFeedback: lighten($elements-color-correct,10%);
+$flashcards-color-incorrectFeedback: lighten($elements-color-incorrect, 20%);
